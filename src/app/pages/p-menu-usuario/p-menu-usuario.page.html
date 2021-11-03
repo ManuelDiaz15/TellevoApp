@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar> 
+    <ion-buttons slot="start"> <!-- Boton para retroceder -->
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Te LlevoAPP</ion-title>
+  </ion-toolbar>
+ 
+</ion-header>
+<ion-content class="ion-text-start">
+  <ion-card-subtitle  class="ion-text-center" color="black"> Bienvenido {{usuario}}</ion-card-subtitle>
+  
+  <ion-card-content >
+      <ion-card-subtitle>¿Donde quieres ir?</ion-card-subtitle>
+  </ion-card-content>
+
+  <ion-item>
+    <ion-icon name="pin" slot="start"></ion-icon>
+    <ion-label>Av. Valparaíso 223</ion-label>
+    <ion-button fill="outline" slot="end">IR</ion-button>
+  </ion-item>
+
+  <ion-item>
+    <ion-icon name="pin" slot="start"></ion-icon>
+    <ion-label>Álvarez 2336 </ion-label>
+    <ion-button fill="outline" slot="end">IR</ion-button>
+  </ion-item>
+
+  <ion-item>
+    <ion-icon name="pin" slot="start"></ion-icon>
+    <ion-label>Avenida España 2250</ion-label>
+    <ion-button fill="outline" slot="end">IR</ion-button>
+  </ion-item>
+
+  <ion-item>
+    <ion-icon name="pin" slot="start"></ion-icon>
+    <ion-label>Liquid House, Chorrillos 92</ion-label>
+    <ion-button fill="outline" slot="end">IR</ion-button>
+  </ion-item>
+
+  <ion-card>
+    <ion-img src="./assets/img/map.PNG"></ion-img>
+  </ion-card>
+
+  <ion-card-content>
+    <ion-button (click)="newdestino()" shape="block">Nuevo Destino</ion-button>
+   </ion-card-content>
+</ion-content>
