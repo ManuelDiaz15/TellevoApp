@@ -19,6 +19,10 @@ const routes: Routes = [
     path: 'p-menu-usuario',
     loadChildren: () => import('./pages/p-menu-usuario/p-menu-usuario.module').then( m => m.PMenuUsuarioPageModule)
   },
+  {
+    path: 'direccion-g',
+    loadChildren: () => import('./pages/direccion-g/direccion-g.module').then( m => m.DireccionGPageModule)
+  },
 ];
 
 @NgModule({
