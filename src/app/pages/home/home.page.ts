@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { AnimationController } from '@ionic/angular';
 
 
 @Component({
@@ -15,7 +17,7 @@ export class HomePage implements OnInit{
   ngOnInit(){}
    // Se utiliza el API enrrutador (Router)  importandolo como (" private router: Router ") para la navegación entre paginas 
    // NavigationExtras para enviar un parametro a otra pagina
-  constructor(private router: Router, private alertController: AlertController) {}
+  constructor(private router: Router, private alertController: AlertController, private animationCtrl: AnimationController) {}
   //Metodo para navegar a Recuperar Password
   recuperar_password(){
     let navigationExtras: NavigationExtras={
@@ -42,5 +44,21 @@ export class HomePage implements OnInit{
     });
     await alert.present();
   }  
-  
+  @ViewChild('titulo',{read: ElementRef, static:true}) titulo: ElementRef;
+  @ViewChild('titulo1',{read: ElementRef, static:true}) titulo1: ElementRef;
+
+ngAfterViewInit() {
+    const animation = this.animationCtrl
+      .create()
+      .addElement(this.titulo.nativeElement)
+      .addElement(this.titulo1.nativeElement)
+      .duration(3000)
+      .iterations(Infinity)
+      .keyframes([
+        { offset: 0, transform: 'scale(1))', opacity: '1' },
+        { offset: 0.5, transform: 'scale(1.1)', opacity: '1' },
+        { offset: 1, transform: 'scale(1)', opacity: '1' }
+      ]);
+    animation.play();
+  }
 }
