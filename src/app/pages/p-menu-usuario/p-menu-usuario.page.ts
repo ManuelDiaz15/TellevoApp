@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 
 
 @Component({
@@ -23,6 +23,13 @@ export class PMenuUsuarioPage implements OnInit {
 
 
   ngOnInit() {
+  }
+
+  
+  nuevodestino(){
+    let navigationExtras: NavigationExtras={
+    }
+    this.router.navigate(['/direccion-g']);//Define la ruta donde llegara
   }
 
 }
