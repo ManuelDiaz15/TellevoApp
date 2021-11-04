@@ -19,16 +19,16 @@ export class BdLocalService {
 
   }
   async cargarDireccion() {
-    const miDireccion= await this.storage.get('direcciones');
+    const miDireccion= await this.storage.get('direccion');
     if (miDireccion) {
-        this.direccion
+        this.direccion=miDireccion;
     }
   }
-  guardarDireccion (direccion:string, nro:string){
+  guardarDireccion (strDireccion:string, nro:string){
     //Creo consluta para saber si la dirección ingresada no existia 
-    const existe= this.direccion.find(d=>d.strNumero===nro);
+    const existe= this.direccion.find(c=>c.strNumero===nro);
     if (!existe) {
-      this.direccion.unshift({strDireccion:direccion,strNumero:nro})
+      this.direccion.unshift({strDireccion:strDireccion,strNumero:nro})
       this._storage.set('direccion',this.direccion)
 
       this.presentToast("Dirección agregada")
@@ -39,7 +39,9 @@ export class BdLocalService {
 
 
   async init() {
-    await this.storage.create();
+    const storage = await this.storage.create();
+    this._storage = storage;
+    
   }
   async presentToast(mensaje:string) {
 
