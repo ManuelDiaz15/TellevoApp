@@ -8,10 +8,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   constructor() {
 
-    var usuario ={
-      nombre: 'manu',
+    var dato_registro ={
+      nombre: 'Manu',
       contraseña: '12345'
     }
-    localStorage.setItem('usuario',JSON.stringify(usuario));
+    localStorage.setItem('dato_registro',JSON.stringify(dato_registro));
   }
 }

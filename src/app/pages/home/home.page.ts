@@ -12,7 +12,7 @@ import { FormGroup, FormControl, Validator, FormBuilder, Validators } from '@ang
 
 export class HomePage implements OnInit {
   formularioLogin: FormGroup;
-  dato_usuario: String;
+  dato_registro: String;
   ngOnInit() { }
   // Se utiliza el API enrrutador (Router)  importandolo como (" private router: Router ") para la navegación entre paginas 
   // NavigationExtras para enviar un parametro a otra pagina
@@ -25,18 +25,16 @@ export class HomePage implements OnInit {
     }
     this.router.navigate(['/p-recuperar-password'], navigationExtras);//Define la ruta donde llegara
   }
-  //Metodo para navegar a Menu Usuario
   async siguiente() {
-    var f = this.formularioLogin.value;
-    var usuario = JSON.parse(localStorage.getItem('usuario'));
-    if (usuario.nombre == f.nombre && usuario.contraseña == f.contraseña) {
+    var form = this.formularioLogin.value;
+    var dato_registro = JSON.parse(localStorage.getItem('dato_registro'));
+    if (dato_registro.nombre == form.nombre && dato_registro.contraseña == form.contraseña) {
       const toast = await this.ToastController.create({
-        message: '¡Bienvenido ' + this.dato_usuario + '!',
+        message: '¡Bienvenido ' + this.dato_registro + '!',
         position: 'top',
         duration: 2000
       });
       toast.present();
-      console.log('ingresado');
       localStorage.setItem('ingresado', 'true');
       let navigationExtras: NavigationExtras = {
       };
