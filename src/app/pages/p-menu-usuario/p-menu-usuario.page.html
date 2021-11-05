@@ -44,13 +44,29 @@
 
   <ion-card-content>
     <ion-button (click)="nuevodestino()" shape="block">Nuevo Destino</ion-button>
-    <ion-button (click)="conductor()" shape="block">Entrar como conductor</ion-button>
    </ion-card-content>
    <div>
-    <ion-segment-button (click)="logout()">
-      <ion-icon name="exit-outline"></ion-icon>
-      <ion-label>Salir</ion-label>
-    </ion-segment-button>
    </div>
-
 </ion-content>
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="infos">
+          <ion-icon name="person-circle-outline"></ion-icon>
+          <ion-label>Editar Perfil</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="people-outline">
+          <ion-icon name="people-outline"></ion-icon>
+          <ion-label>Entrar como conductor</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button (click)="logout()">
+          <ion-icon name="exit-outline"></ion-icon>
+          <ion-label>Salir</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>
