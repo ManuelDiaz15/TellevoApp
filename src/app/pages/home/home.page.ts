@@ -50,13 +50,16 @@ ngAfterViewInit() {
     var form = this.formularioLogin.value;
     var dato_registro = JSON.parse(localStorage.getItem('dato_registro'));
     if (dato_registro.nombre == form.nombre && dato_registro.contraseña == form.contraseña) {
+    
+      localStorage.setItem('ingresado', 'true');
+      this.navCtrl.navigateRoot('p-menu-usuario');
+      
       const toast = await this.ToastController.create({
         message: '¡Bienvenido ' + this.dato_registro + '!',
         position: 'top',
         duration: 2000
       });
       toast.present();
-      localStorage.setItem('ingresado', 'true');
       let navigationExtras: NavigationExtras = {
       };
       this.navCtrl.navigateRoot('p-menu-usuario');
@@ -69,7 +72,6 @@ ngAfterViewInit() {
       await alert.present();
     }
   }
-
-
+  
 
 }
