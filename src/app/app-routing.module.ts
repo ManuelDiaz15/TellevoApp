@@ -21,7 +21,7 @@ const routes: Routes = [
   {
     path: 'p-menu-usuario',
     loadChildren: () => import('./pages/p-menu-usuario/p-menu-usuario.module').then( m => m.PMenuUsuarioPageModule),
-    
+    canActivate:[IngresadoGuard]
   },
   {
     path: 'direccion-g',
