@@ -24,7 +24,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/direccion-g/direccion-g.module').then( m => m.DireccionGPageModule)
   },
   {
-    path: 'not-found',
+    path: '**',
     loadChildren: () => import('./pages/not-found/not-found.module').then( m => m.NotFoundPageModule)
   },
 ];
