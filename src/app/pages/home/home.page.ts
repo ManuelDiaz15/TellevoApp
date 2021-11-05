@@ -30,7 +30,7 @@ export class HomePage implements OnInit{
      state:{usuario: this.usuario}// (Creamos el parametro o los parametros que queremos enviar en este caso this.usuario)
     }
     //this.usuario!=null || this.password!=null
-    if (this.usuario!=null || this.password!=null){//(this.usuario == 'Manu' && this.password == '123' || this.usuario == 'Lloni' && this.password == '123'){
+    if (this.usuario == 'Manu' && this.password == '123' || this.usuario == 'Lloni' && this.password == '123'){//({
       this.router.navigate(['/p-menu-usuario'],navigationExtras);//Envia el parametro a la siguiente pag para ser utilizado
     }else{
      this.presentAlert("Te LLevoAPP","Usuario o contraseña Inválido")
