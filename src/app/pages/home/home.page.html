@@ -8,7 +8,6 @@
   <ion-title class="ion-padding-top ion-text-center">
   </ion-title>
   <body>
-    <div>
       <div class="ion-padding-vertical">
         <ion-card-content class="ion-text-center">
           <ion-card-title class="ion-text-center">
@@ -20,11 +19,10 @@
               <form [formGroup]="formularioLogin">
                 <ion-item>
                   <ion-icon slot="start" name="person"></ion-icon>
-                  <ion-label position="floating">Nombre de usuario</ion-label>
-                  <ion-input formControlName="nombre" [(ngModel)]="dato" type="varchar"></ion-input>
+                  <ion-label position="floating">Usuario</ion-label>
+                  <ion-input formControlName="nombre" [(ngModel)]="dato_usuario" type="varchar"></ion-input>
                 </ion-item>
                 <div class="form-input">
-                  
                   <ion-item>
                     <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
                     <ion-label position="floating">Contraseña</ion-label>
@@ -43,6 +41,5 @@
           </ion-card-content>
         </ion-card-content>
       </div>
-    </div>
   </body>
 </ion-content>

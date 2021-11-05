@@ -10,24 +10,20 @@ import { FormGroup, FormControl, Validator, FormBuilder, Validators } from '@ang
   styleUrls: ['home.page.scss'],
 })
 
-export class HomePage implements OnInit{
+export class HomePage implements OnInit {
   formularioLogin: FormGroup;
-  dato: String;
-  ngOnInit(){}
-   // Se utiliza el API enrrutador (Router)  importandolo como (" private router: Router ") para la navegación entre paginas 
-   // NavigationExtras para enviar un parametro a otra pagina
-  constructor(public fb: FormBuilder,private router: Router, public alerta: AlertController,
-    public navCtrl: NavController, public ToastController: ToastController) {
-    this.formularioLogin = this.fb.group({
-      'nombre': new FormControl("", Validators.required),
-      'contraseña': new FormControl("", Validators.required)
-    });
+  dato_usuario: String;
+  ngOnInit() { }
+  // Se utiliza el API enrrutador (Router)  importandolo como (" private router: Router ") para la navegación entre paginas 
+  // NavigationExtras para enviar un parametro a otra pagina
+  constructor(public fb: FormBuilder, private router: Router, public alerta: AlertController, public navCtrl: NavController, public ToastController: ToastController) {
+    this.formularioLogin = this.fb.group({'nombre': new FormControl("", Validators.required),'contraseña': new FormControl("", Validators.required)});
   }
   //Metodo para navegar a Recuperar Password
-  recuperar_password(){
-    let navigationExtras: NavigationExtras={
+  recuperar_password() {
+    let navigationExtras: NavigationExtras = {
     }
-    this.router.navigate(['/p-recuperar-password'],navigationExtras);//Define la ruta donde llegara
+    this.router.navigate(['/p-recuperar-password'], navigationExtras);//Define la ruta donde llegara
   }
   //Metodo para navegar a Menu Usuario
   async siguiente() {
@@ -35,9 +31,9 @@ export class HomePage implements OnInit{
     var usuario = JSON.parse(localStorage.getItem('usuario'));
     if (usuario.nombre == f.nombre && usuario.contraseña == f.contraseña) {
       const toast = await this.ToastController.create({
-        message:'¡Bienvenido '+this.dato+'!',
-        position:'top',
-        duration:2000
+        message: '¡Bienvenido ' + this.dato_usuario + '!',
+        position: 'top',
+        duration: 2000
       });
       toast.present();
       console.log('ingresado');
