@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
-import { AfterViewInit, ElementRef, ViewChild } from '@angular/core';
-import { AnimationController } from '@ionic/angular';
+import { AlertController, NavController, ToastController } from '@ionic/angular';
+import { FormGroup, FormControl, Validator, FormBuilder, Validators } from '@angular/forms';
 
 
 @Component({
@@ -12,12 +11,18 @@ import { AnimationController } from '@ionic/angular';
 })
 
 export class HomePage implements OnInit{
-  usuario:String; 
-  password:String; 
+  formularioLogin: FormGroup;
+  dato: String;
   ngOnInit(){}
    // Se utiliza el API enrrutador (Router)  importandolo como (" private router: Router ") para la navegación entre paginas 
    // NavigationExtras para enviar un parametro a otra pagina
-  constructor(private router: Router, private alertController: AlertController, private animationCtrl: AnimationController) {}
+  constructor(public fb: FormBuilder,private router: Router, public alerta: AlertController,
+    public navCtrl: NavController, public ToastController: ToastController) {
+    this.formularioLogin = this.fb.group({
+      'nombre': new FormControl("", Validators.required),
+      'contraseña': new FormControl("", Validators.required)
+    });
+  }
   //Metodo para navegar a Recuperar Password
   recuperar_password(){
     let navigationExtras: NavigationExtras={
@@ -25,40 +30,28 @@ export class HomePage implements OnInit{
     this.router.navigate(['/p-recuperar-password'],navigationExtras);//Define la ruta donde llegara
   }
   //Metodo para navegar a Menu Usuario
-  siguiente(){
-    let navigationExtras: NavigationExtras={
-     state:{usuario: this.usuario}// (Creamos el parametro o los parametros que queremos enviar en este caso this.usuario)
+  async siguiente() {
+    var f = this.formularioLogin.value;
+    var usuario = JSON.parse(localStorage.getItem('usuario'));
+    if (usuario.nombre == f.nombre && usuario.contraseña == f.contraseña) {
+      const toast = await this.ToastController.create({
+        message:'¡Bienvenido '+this.dato+'!',
+        position:'top',
+        duration:2000
+      });
+      toast.present();
+      console.log('ingresado');
+      localStorage.setItem('ingresado', 'true');
+      let navigationExtras: NavigationExtras = {
+      };
+      this.navCtrl.navigateRoot('p-menu-usuario');
+    } else {
+      const alert = await this.alerta.create({
+        header: 'Datos incorrectos',
+        message: 'Los datos son incorrectos.',
+        buttons: ['Aceptar']
+      });
+      await alert.present();
     }
-    //this.usuario!=null || this.password!=null
-    if (this.usuario == 'Manu' && this.password == '123' || this.usuario == 'Lloni' && this.password == '123'){//({
-      this.router.navigate(['/p-menu-usuario'],navigationExtras);//Envia el parametro a la siguiente pag para ser utilizado
-    }else{
-     this.presentAlert("Te LLevoAPP","Usuario o contraseña Inválido")
-    }
-  }
-  async presentAlert(Titulo:string, msg:string) {
-    const alert = await this.alertController.create({
-      header: Titulo,
-      message: msg,
-      buttons: ['OK']
-    });
-    await alert.present();
-  }  
-  @ViewChild('titulo',{read: ElementRef, static:true}) titulo: ElementRef;
-  @ViewChild('titulo1',{read: ElementRef, static:true}) titulo1: ElementRef;
-
-ngAfterViewInit() {
-    const animation = this.animationCtrl
-      .create()
-      .addElement(this.titulo.nativeElement)
-      .addElement(this.titulo1.nativeElement)
-      .duration(3000)
-      .iterations(Infinity)
-      .keyframes([
-        { offset: 0, transform: 'scale(1))', opacity: '1' },
-        { offset: 0.5, transform: 'scale(1.1)', opacity: '1' },
-        { offset: 1, transform: 'scale(1)', opacity: '1' }
-      ]);
-    animation.play();
   }
 }
