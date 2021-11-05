@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { AlertController, NavController, ToastController } from '@ionic/angular';
-import { FormGroup, FormControl, Validator, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { AnimationController } from '@ionic/angular';
+import { ElementRef, ViewChild } from '@angular/core';
 
 
 @Component({
@@ -16,7 +18,7 @@ export class HomePage implements OnInit {
   ngOnInit() { }
   // Se utiliza el API enrrutador (Router)  importandolo como (" private router: Router ") para la navegación entre paginas 
   // NavigationExtras para enviar un parametro a otra pagina
-  constructor(public fb: FormBuilder, private router: Router, public alerta: AlertController, public navCtrl: NavController, public ToastController: ToastController) {
+  constructor(public fb: FormBuilder, private router: Router, public alerta: AlertController, public navCtrl: NavController, public ToastController: ToastController,  private animationCtrl: AnimationController) {
     this.formularioLogin = this.fb.group({'nombre': new FormControl("", Validators.required),'contraseña': new FormControl("", Validators.required)});
   }
   //Metodo para navegar a Recuperar Password
@@ -24,6 +26,25 @@ export class HomePage implements OnInit {
     let navigationExtras: NavigationExtras = {
     }
     this.router.navigate(['/p-recuperar-password'], navigationExtras);//Define la ruta donde llegara
+  }
+  @ViewChild('titulo',{read: ElementRef, static:true}) titulo: ElementRef;
+  @ViewChild('titulo1',{read: ElementRef, static:true}) titulo1: ElementRef;
+  @ViewChild('titulo2',{read: ElementRef, static:true}) titulo2: ElementRef;
+
+ngAfterViewInit() {
+    const animation = this.animationCtrl
+      .create()
+      .addElement(this.titulo.nativeElement)
+      .addElement(this.titulo1.nativeElement)
+      .addElement(this.titulo2.nativeElement)
+      .duration(3000)
+      .iterations(Infinity)
+      .keyframes([
+        { offset: 0, transform: 'scale(1))', opacity: '1' },
+        { offset: 0.5, transform: 'scale(1.1)', opacity: '1' },
+        { offset: 1, transform: 'scale(1)', opacity: '1' }
+      ]);
+    animation.play();
   }
   async siguiente() {
     var form = this.formularioLogin.value;
@@ -47,7 +68,6 @@ export class HomePage implements OnInit {
       });
       await alert.present();
     }
-    
   }
 
 

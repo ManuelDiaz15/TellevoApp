@@ -3,7 +3,7 @@
 </ion-item>
 <ion-content [fullscreen]="true">
   <div class="heading ion-padding">
-    <ion-img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Logo_DuocUC.svg"></ion-img>
+    <ion-img #titulo src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Logo_DuocUC.svg"></ion-img>
   </div>
   <ion-title class="ion-padding-top ion-text-center">
   </ion-title>
@@ -11,8 +11,8 @@
       <div class="ion-padding-vertical">
         <ion-card-content class="ion-text-center">
           <ion-card-title class="ion-text-center">
-            <h1 #titulo>Te LlevoAPP</h1>
-            <h1 #titulo1>Bienvenido</h1>
+            <h1 #titulo1>Te LlevoAPP</h1>
+            <h1 #titulo2>Bienvenido</h1>
           </ion-card-title>
           <div class="login-form ion-padding">
             <div class="form-input">
@@ -34,10 +34,6 @@
               <ion-button (click)="recuperar_password()" shape="block">Recuperar Contraseña</ion-button>
             </div>
           </div>
-          <ion-card-content>
-            <ion-item>
-            </ion-item>
-          </ion-card-content>
         </ion-card-content>
       </div>
   </body>

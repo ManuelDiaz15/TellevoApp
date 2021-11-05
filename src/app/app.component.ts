@@ -10,7 +10,7 @@ export class AppComponent {
 
     var dato_registro ={
       nombre: 'Manu',
-      contraseña: '12345'
+      contraseña: '123'
     }
     localStorage.setItem('dato_registro',JSON.stringify(dato_registro));
   }
