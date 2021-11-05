@@ -41,8 +41,8 @@ export class HomePage implements OnInit {
       this.navCtrl.navigateRoot('p-menu-usuario');
     } else {
       const alert = await this.alerta.create({
-        header: 'Datos incorrectos',
-        message: 'Los datos son incorrectos.',
+        header: 'Datos Erroneos',
+        message: 'Los datos no son validos.',
         buttons: ['Aceptar']
       });
       await alert.present();
@@ -50,6 +50,6 @@ export class HomePage implements OnInit {
     
   }
 
-  
+
 
 }
