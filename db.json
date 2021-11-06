@@ -1,83 +1,34 @@
 {
-  "Ramos": [
+  "Direcciones": [
     {
       "id": 1,
-      "ramo": "Inteligencia de Negocios",
-      "profesor": "Johana Moraga",
-      "carreraId": 1,
-      "porcentaje": "85%"
+      "titulo": " Quillota",
+      "mensaje": " Bienvenido"
     },
     {
       "id": 2,
-      "ramo": "Gestión de proyectos informaticos",
-      "profesor": "René Calquin",
-      "carreraId": 1,
-      "porcentaje": "77%"
+      "titulo": " Calera",
+      "mensaje": " Bienvenido"
     },
     {
       "id": 3,
-      "ramo": "Programación de Aplicaciones Móviles",
-      "profesor": "Nancy Bernal",
-      "carreraId": 1,
-      "porcentaje": "75%"
-    },
-    {
-      "id": 5,
-      "ramo": "Ética",
-      "profesor": "Carlos Gaggero",
-      "carreraId": 1,
-      "porcentaje": "98%"
-    },
-    {
-      "id": 6,
-      "ramo": "Seguridad en sistemas computacionles",
-      "profesor": "Josue Correa",
-      "carreraId": 1,
-      "porcentaje": "65%"
-    },
-    {
-      "id": 7,
-      "ramo": "Machine Learning",
-      "profesor": "Omar Salinas",
-      "carreraId": 1,
-      "porcentaje": "80%"
-    }
-  ],
-  "notas": [
-    {
-      "id": 1,
-      "titulo": " asddsa",
-      "mensaje": " dsadsa"
-    },
-    {
-      "id": 2,
-      "titulo": " dsasda",
-      "mensaje": " sdadas"
-    },
-    {
-      "id": 3,
-      "titulo": " dsaasd",
-      "mensaje": "dsa "
+      "titulo": " La Cruz",
+      "mensaje": "Bienvenido "
     },
     {
       "id": 4,
-      "titulo": "das ",
-      "mensaje": "dsa "
+      "titulo": "Quilpue ",
+      "mensaje": "Bienvenido "
     },
     {
       "id": 5,
-      "titulo": " sad",
-      "mensaje": "dsa "
+      "titulo": " Valpo",
+      "mensaje": "Bienvenido "
     },
     {
       "id": 6,
-      "titulo": "das ",
-      "mensaje": "das "
-    },
-    {
-      "id": 7,
-      "titulo": " dsa",
-      "mensaje": "dsa "
+      "titulo": "Hijuelas ",
+      "mensaje": "Bienvenido "
     }
   ]
 }
