@@ -17,46 +17,41 @@ export class APIClientService {
 
   // Se establece la base url del API a consumir
   // apiURL = 'https://jsonplaceholder.typicode.com';
-  apiURL = 'http://192.168.0.3:30000'
+  apiURL = 'http://192.168.0.3:3000'
 
   constructor(private http: HttpClient) { }
 
-  getUsuarios(): Observable<any> {
-    return this.http.get(this.apiURL + '/users/').pipe(
+  getCiudades(): Observable<any> {
+    return this.http.get(this.apiURL + '/Ciudades/').pipe(
       retry(3)
     );
   }
-  getUsuario(userId): Observable<any> {
-    return this.http.get(this.apiURL + '/users/' + userId).pipe(
+  getCiudad(id): Observable<any> {
+    return this.http.get(this.apiURL + '/Ciudad/' + id).pipe(
       retry(3)
     );
   }
-
-  getPost(id): Observable<any> {
-    return this.http.get(this.apiURL + '/posts/'+id).pipe(
+  getDirecciones(): Observable<any> {
+    return this.http.get(this.apiURL + '/Direcciones/').pipe(
       retry(3)
     );
   }
-
-  getPosts(): Observable<any> {
-    return this.http.get(this.apiURL + '/posts/').pipe(
+  getDireccion(id): Observable<any> {
+    return this.http.get(this.apiURL + '/Direcciones/' + id).pipe(
       retry(3)
     );
   }
   createPost(post): Observable<any> {
-    return this.http.post(this.apiURL + '/posts', post, this.httpOptions).pipe(
-      retry(3)
-    );
+    return this.http.post(this.apiURL + '/Direcciones', post, this.httpOptions).pipe(
+        retry(3)
+      );
   }
-
   updatePost(id, post): Observable<any> {
-    return this.http.put(this.apiURL + '/posts/' + id, post, this.httpOptions).pipe(
+    return this.http.put(this.apiURL + '/Direcciones/' + id, post, this.httpOptions).pipe(
       retry(3));
   }
-  deletePost(id): Observable<any> {
-    return this.http.delete(this.apiURL + '/posts/' + id, this.httpOptions);
-  }
-
-
+  deletePost(id):Observable<any>{
+    return this.http.delete(this.apiURL+'/Direcciones/'+id,this.httpOptions);
+    }
 
 }
