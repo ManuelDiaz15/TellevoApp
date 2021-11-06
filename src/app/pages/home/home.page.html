@@ -1,28 +1,40 @@
+<ion-item>
+  <ion-icon slot="end" name="mail-unread-outline"></ion-icon>
+</ion-item>
 <ion-content [fullscreen]="true">
-  <ion-title class="ion-padding-top ion-text-center" >
+  <div class="heading ion-padding">
+    <ion-img #titulo src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Logo_DuocUC.svg"></ion-img>
+  </div>
+  <ion-title class="ion-padding-top ion-text-center">
   </ion-title>
   <body>
-    <div >
       <div class="ion-padding-vertical">
         <ion-card-content class="ion-text-center">
           <ion-card-title class="ion-text-center">
-            <h1>Te LlevoAPP</h1>
-            <h1>Bienvenido!</h1>
+            <h1 #titulo1>Te LlevoAPP</h1>
+            <h1 #titulo2>Bienvenido</h1>
           </ion-card-title>
-          <ion-card-content>
-            <ion-item>
-              <ion-label position="floating">Usuario</ion-label>
-              <ion-input type ="text" maxlength ="10" minlength ="3" [(ngModel)]="usuario"></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-label position="floating">Contraseña</ion-label>
-              <ion-input type="password" maxlength ="8" [(ngModel)]="password"></ion-input>
-            </ion-item>
-          </ion-card-content>
-          <ion-button (click)="siguiente()" shape="block">Ingresar</ion-button>
-          <ion-button (click)="recuperar_password()" shape="block">Recuperar Contraseña</ion-button>
+          <div class="login-form ion-padding">
+            <div class="form-input">
+              <form [formGroup]="formularioLogin">
+                <ion-item>
+                  <ion-icon slot="start" name="person"></ion-icon>
+                  <ion-label position="floating">Usuario</ion-label>
+                  <ion-input formControlName="nombre" [(ngModel)]="dato_registro" type="varchar"></ion-input>
+                </ion-item>
+                <div class="form-input">
+                  <ion-item>
+                    <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
+                    <ion-label position="floating">Contraseña</ion-label>
+                    <ion-input formControlName="contraseña" type="password"></ion-input>
+                  </ion-item>
+                </div>
+              </form>
+              <ion-button (click)="siguiente()" shape="block">Ingresar</ion-button>
+              <ion-button (click)="recuperar_password()" shape="block">Recuperar Contraseña</ion-button>
+            </div>
+          </div>
         </ion-card-content>
       </div>
-    </div>
   </body>
 </ion-content>

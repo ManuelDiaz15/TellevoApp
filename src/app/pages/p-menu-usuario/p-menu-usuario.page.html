@@ -8,10 +8,10 @@
  
 </ion-header>
 <ion-content class="ion-text-start">
-  <ion-card-subtitle  class="ion-text-center" color="black"> Bienvenido {{usuario}}</ion-card-subtitle>
+  <ion-card-subtitle  class="ion-text-center" color="black"> Bienvenido a Te LlevoAPP</ion-card-subtitle>
   
   <ion-card-content >
-      <ion-card-subtitle>¿Donde quieres ir?</ion-card-subtitle>
+      <ion-card-subtitle>Ubicaciones Favoritas</ion-card-subtitle>
   </ion-card-content>
 
   <ion-item>
@@ -39,10 +39,35 @@
   </ion-item>
 
   <ion-card>
-    <ion-img src="./assets/img/map.PNG"></ion-img>
+   <!-- Boton para retroceder <ion-img src="./assets/img/map.PNG"></ion-img>-->
   </ion-card>
 
   <ion-card-content>
     <ion-button (click)="nuevodestino()" shape="block">Nuevo Destino</ion-button>
+    <ion-button (click)="abrirmapa()" shape="block">Abrir Mapa</ion-button>
    </ion-card-content>
+   <div>
+   </div>
 </ion-content>
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="infos">
+          <ion-icon name="person-circle-outline"></ion-icon>
+          <ion-label>Editar Perfil</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="people-outline">
+          <ion-icon name="people-outline"></ion-icon>
+          <ion-label>Entrar como conductor</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button (click)="logout()">
+          <ion-icon name="exit-outline"></ion-icon>
+          <ion-label>Salir</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>

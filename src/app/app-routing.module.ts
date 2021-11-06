@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { IngresadoGuard } from './ingresado.guard';
+import { NoIngresadoGuard } from './no-ingresado.guard';
 
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule),
+    canActivate:[NoIngresadoGuard]
   },
   {
     path: '',
@@ -17,11 +20,17 @@ const routes: Routes = [
   },
   {
     path: 'p-menu-usuario',
-    loadChildren: () => import('./pages/p-menu-usuario/p-menu-usuario.module').then( m => m.PMenuUsuarioPageModule)
+    loadChildren: () => import('./pages/p-menu-usuario/p-menu-usuario.module').then( m => m.PMenuUsuarioPageModule),
+    canActivate:[IngresadoGuard]
   },
   {
     path: 'direccion-g',
-    loadChildren: () => import('./pages/direccion-g/direccion-g.module').then( m => m.DireccionGPageModule)
+    loadChildren: () => import('./pages/direccion-g/direccion-g.module').then( m => m.DireccionGPageModule),
+    canActivate:[IngresadoGuard]
+  },
+  {
+    path: '**',
+    loadChildren: () => import('./pages/not-found/not-found.module').then( m => m.NotFoundPageModule)
   },
 ];
 

@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  constructor() {
+
+    var dato_registro ={
+      nombre: 'Manu',
+      contraseña: '123'
+    }
+    localStorage.setItem('dato_registro',JSON.stringify(dato_registro));
+  }
 }
