@@ -10,7 +10,28 @@
 
 <ion-content [fullscreen]="true">
   <ion-card>
-   
-
+    <ion-item>
+      <ion-select placeholder="Seccione Ciudad"[(ngModel)]="Ciudad">
+      <ion-select-option *ngFor="let ciu of Ciudades" [value]="ciu">{{ciu.ciudad}}</ion-select-option>
+    </ion-select>
+    </ion-item>
   </ion-card>
+  <ion-card-header>
+    <ion-title>Dirección de la Ciudad</ion-title>
+  </ion-card-header>
+<ion-item class="ion-padding-horizontal">
+  <ion-label position="floating">Dirección</ion-label>
+  <ion-input [(ngModel)]="post.titulo"></ion-input>
+</ion-item>
+<ion-item class="ion-padding-horizontal">
+  <ion-label position="floating">Numero</ion-label>
+  <ion-textarea [(ngModel)]="post.mensaje"></ion-textarea>
+</ion-item>
+<ion-grid>
+  <ion-row>
+    <ion-col><ion-button shape="round" expand="block">Limpiar</ion-button></ion-col>
+    <ion-col><ion-button shape="round" expand="block" (click)="guardarDirecciones()">Guardar</ion-button></ion-col>
+  </ion-row>
+</ion-grid>
 </ion-content>
+
