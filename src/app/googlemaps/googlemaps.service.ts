@@ -30,7 +30,7 @@ export class GooglemapsService {
     return new Promise((resolve) => {
 
       if (this.mapsLoaded) {
-        console.log('google se carga en preview')
+        console.log('google se carga en previamente')
         resolve(true);
         return;
       }

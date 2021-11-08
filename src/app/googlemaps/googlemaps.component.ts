@@ -22,7 +22,6 @@ import { Geolocation } from '@capacitor/geolocation';
 // const {Geolocation} = Geolocation;
 
 
-
 declare var google: any;
 
 
@@ -42,7 +41,7 @@ export class GooglemapsComponent implements OnInit {
 
       label = {
             titulo: 'Ubicación',
-            subtitulo: 'Duoc UC Chorrillos'
+            subtitulo: 'Dirección del viaje'
       }
 
       map: any;
@@ -91,7 +90,7 @@ export class GooglemapsComponent implements OnInit {
             this.marker = new google.maps.Marker({
                   map: this.map,
                   animation: google.maps.Animation.DROP,
-                  draggable: false,
+                  draggable: true,
             });
             this.clickHandleEvent();
             this.infowindow = new google.maps.InfoWindow();
@@ -138,7 +137,6 @@ export class GooglemapsComponent implements OnInit {
                   '</div>';
             this.infowindow.setContent(contentString);
             this.infowindow.open(this.map, marker);
-
       }
 
       async mylocation() {
